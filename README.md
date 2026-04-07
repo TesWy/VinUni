@@ -42,7 +42,7 @@ SÁNG — Lecture + Workshop                   CHIỀU — Lecture + Hackathon k
 | 15:00 | Q&A + Buffer | | |
 | 15:30 | Break | | |
 | 16:00 | **Hackathon briefing** + chia nhóm + chọn track + bắt đầu draft SPEC | Nhóm (3–5 người) | |
-| **Midnight** | **Deadline** | Nhóm | **Submit topic + SPEC draft** |
+| **23h59** | **Deadline 08/04** | Nhóm | **Submit topic + SPEC draft** |
 
 ---
 
@@ -64,7 +64,7 @@ Sketch Canvas cho project của nhóm lên giấy A3 hoặc whiteboard. Peer pee
 
 ### 3. SPEC draft (từ 16:00 + tối, nhóm)
 
-Bắt đầu viết SPEC cho hackathon. Deadline: midnight Day 5.
+Bắt đầu viết SPEC cho hackathon. Deadline: 23h59 08/04 Day 5.
 
 SPEC gồm 6 phần: Canvas, User Stories 4 paths, Eval metrics, Failure modes, ROI, Mini AI spec.
 
@@ -77,7 +77,7 @@ SPEC gồm 6 phần: Canvas, User Stories 4 paths, Eval metrics, Failure modes, 
 | # | Deliverable | Loại | Deadline | Ghi chú |
 |---|-------------|------|----------|---------|
 | 1 | **Bài tập UX** — sketch giấy (as-is + to-be) + ghi chú phân tích 4 paths | Cá nhân | Cuối UX workshop | Nộp tại lớp |
-| 2 | **SPEC draft** — topic + Canvas + hướng đi chính | Nhóm | Midnight Day 5 | Submit kịp = pass. Chất lượng chấm ở SPEC final Day 6 |
+| 2 | **SPEC draft** — topic + Canvas + hướng đi chính | Nhóm | 23h59 08/04/2026 | Submit kịp = pass. Chất lượng chấm ở SPEC final Day 6 |
 
 ---
 
@@ -87,11 +87,11 @@ Day 5 + Day 6 chấm chung = **100 điểm**.
 
 | Hạng mục | Điểm | Loại | Khi nào |
 |----------|------|------|---------|
-| SPEC milestone | 25 | Nhóm + cá nhân | Draft midnight D5, final 23:59 D6 |
-| Prototype milestone | 15 | Nhóm + cá nhân | 23:59 Day 6 |
-| Demo Day | 25 | Nhóm | Present 16:00, nộp file 23:59 D6 |
+| SPEC milestone | 25 | Nhóm + cá nhân | Draft 23h59 08/04 D5, final 23h59 09/04 |
+| Prototype milestone | 15 | Nhóm + cá nhân | 23h59 09/04 |
+| Demo Day | 25 | Nhóm | Present 16:00, nộp file 23h59 09/04 |
 | **Bài tập UX** | **10** | **Cá nhân + bonus** | **UX workshop sáng D5** |
-| Individual reflection | 25 | Cá nhân | 23:59 Day 6 |
+| Individual reflection | 25 | Cá nhân | 23h59 09/04 |
 | **Tổng** | **100** | | |
 
 ### Bài tập UX (10 điểm + bonus)
@@ -130,7 +130,7 @@ Nhóm 3–5 người, chia zone (~5 team/zone).
 
 ## Nộp bài Day 5
 
-**Deadline:** Midnight Day 5 | **Nộp lên:** LMS | **Mỗi người nộp 1 zip riêng**
+**Deadline:** 23h59 08/04/2026 | **Nộp lên:** LMS | **Mỗi người nộp 1 zip riêng**
 
 ```
 MaHocVien-HoTen-Day05.zip
@@ -151,7 +151,7 @@ MaHocVien-HoTen-Day05.zip
 1. Track đã chọn (VinFast / Vinmec / VinUni-VinSchool / Open)
 2. Problem statement 1 câu: "Ai gặp vấn đề gì, hiện giải thế nào, AI giúp được gì"
 3. Phân công ai làm phần nào trong Canvas
-4. SPEC draft submit trước midnight
+4. SPEC draft submit trước 23h59 08/04
 
 ---
 
