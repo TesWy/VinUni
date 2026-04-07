@@ -1,0 +1,183 @@
+{
+  "timestamp": "2026-04-07T15:47:41.018472",
+  "provider": "gemini",
+  "model": "gemma-4-31b-it",
+  "summary": {
+    "passed": 5,
+    "total": 5
+  },
+  "results": [
+    {
+      "case_id": "test_1",
+      "title": "Direct Answer (Khong can tool)",
+      "user_input": "Xin chào! Tôi đang muốn đi du lịch nhưng chưa biết đi đâu.",
+      "expectation": "Agent chao hoi, hoi them ve so thich / ngan sach / thoi gian. Khong goi tool nao.",
+      "turn_id": "eval-test_1-d0980ac6",
+      "elapsed_ms": 15234,
+      "passed": true,
+      "checks": [
+        {
+          "name": "No tool call",
+          "passed": true,
+          "details": "tool_calls=0"
+        },
+        {
+          "name": "Asks follow-up questions",
+          "passed": true,
+          "details": "question_marks=4, matched_categories=2"
+        }
+      ],
+      "tool_calls": [],
+      "tool_results": [],
+      "final_answer": "Chào bạn! Rất vui được đồng hành cùng bạn trong chuyến đi sắp tới.\n\nĐể TravelBuddy có thể gợi ý cho bạn những điểm đến phù hợp và thú vị nhất, bạn chia sẻ thêm cho mình một chút thông tin nhé:\n\n1. Bạn khởi hành từ thành phố nào?\n2. Bạn thích kiểu du lịch như thế nào? (Ví dụ: nghỉ dưỡng biển, khám phá núi rừng, đi dạo phố thị, hay tìm hiểu văn hóa/lịch sử...)\n3. Ngân sách dự kiến của bạn cho chuyến đi này khoảng bao nhiêu?\n4. Bạn dự định đi trong bao lâu và đi cùng ai? (Đi một mình, với người yêu, bạn bè hay gia đình...)\n\nKhi có những thông tin này, mình sẽ đề xuất cho bạn vài điểm đến lý tưởng kèm theo phương án bay và khách sạn chi tiết luôn nhé!"
+    },
+    {
+      "case_id": "test_2",
+      "title": "Single Tool Call",
+      "user_input": "Tìm giúp tôi chuyến bay từ Hà Nội đi Đà Nẵng",
+      "expectation": "Goi search_flights(\"Hà Nội\", \"Đà Nẵng\"), liet ke 4 chuyen bay.",
+      "turn_id": "eval-test_2-0c3410f8",
+      "elapsed_ms": 9670,
+      "passed": true,
+      "checks": [
+        {
+          "name": "Uses search_flights only",
+          "passed": true,
+          "details": "tool_sequence=['search_flights']"
+        },
+        {
+          "name": "search_flights returns 4 options",
+          "passed": true,
+          "details": "flight_option_count=4"
+        },
+        {
+          "name": "Final answer mentions route or flight options",
+          "passed": true,
+          "details": "expected route/airline mention in final answer"
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "search_flights",
+          "args": {
+            "origin": "Hà Nội",
+            "destination": "Đà Nẵng"
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "search_flights",
+          "content": "Cac chuyen bay tu Ha Noi den Da Nang:\n1. Vietnam Airlines | 06:00 - 07:20 | economy | 1.450.000d\n2. Vietnam Airlines | 14:00 - 15:20 | business | 2.800.000d\n3. VietJet Air | 08:30 - 09:50 | economy | 890.000d\n4. Bamboo Airways | 11:00 - 12:20 | economy | 1.200.000d"
+        }
+      ],
+      "final_answer": "Chào bạn, tôi đã tìm thấy một số chuyến bay từ Hà Nội đi Đà Nẵng để bạn tham khảo:\n\n1. VietJet Air: 08:30 - 09:50 | Hạng phổ thông | 890.000đ (Giá rẻ nhất)\n2. Bamboo Airways: 11:00 - 12:20 | Hạng phổ thông | 1.200.000đ\n3. Vietnam Airlines: 06:00 - 07:20 | Hạng phổ thông | 1.450.000đ (Bay sớm nhất)\n4. Vietnam Airlines: 14:00 - 15:20 | Hạng thương gia | 2.800.000đ (Cao cấp nhất)\n\nBạn muốn chọn chuyến bay nào hoặc cần tôi hỗ trợ tìm khách sạn tại Đà Nẵng không?"
+    },
+    {
+      "case_id": "test_3",
+      "title": "Multi-Step Tool Chaining",
+      "user_input": "Tôi ở Hà Nội, muốn đi Phú Quốc 2 đêm, budget 5 triệu. Tư vấn giúp!",
+      "expectation": "Ky vong chain: search_flights(\"Hà Nội\", \"Phú Quốc\") -> search_hotels(\"Phú Quốc\", max_price phu hop) -> calculate_budget(5000000, ...), roi tong hop thanh goi y hoan chinh.",
+      "turn_id": "eval-test_3-9ec2fabe",
+      "elapsed_ms": 51307,
+      "passed": true,
+      "checks": [
+        {
+          "name": "Uses expected multi-step tool chain",
+          "passed": true,
+          "details": "expected=['search_flights', 'search_hotels', 'calculate_budget'], actual=['search_flights', 'search_hotels', 'calculate_budget']"
+        },
+        {
+          "name": "Mentions budget synthesis in final answer",
+          "passed": true,
+          "details": "expected budget summary in final answer"
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "search_flights",
+          "args": {
+            "origin": "Hà Nội",
+            "destination": "Phú Quốc"
+          }
+        },
+        {
+          "name": "search_hotels",
+          "args": {
+            "city": "Phú Quốc"
+          }
+        },
+        {
+          "name": "calculate_budget",
+          "args": {
+            "total_budget": 5000000,
+            "expenses": "ve_may_bay:1100000,khach_san:1600000"
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "search_flights",
+          "content": "Cac chuyen bay tu Ha Noi den Phu Quoc:\n1. Vietnam Airlines | 07:00 - 09:15 | economy | 2.100.000d\n2. VietJet Air | 10:00 - 12:15 | economy | 1.350.000d\n3. VietJet Air | 16:00 - 18:15 | economy | 1.100.000d"
+        },
+        {
+          "name": "search_hotels",
+          "content": "Danh sach khach san tai Phu Quoc (gia <= 99.999.999d/dem):\n1. 9Station Hostel | 2 sao | 200.000d/dem | Duong Dong | rating 4.5\n2. Vinpearl Resort | 5 sao | 3.500.000d/dem | Bai Dai | rating 4.4\n3. Sol by Melia | 4 sao | 1.500.000d/dem | Bai Truong | rating 4.2\n4. Lahana Resort | 3 sao | 800.000d/dem | Duong Dong | rating 4.0"
+        },
+        {
+          "name": "calculate_budget",
+          "content": "Bang chi tiet:\n- ve_may_bay: 1.100.000d\n- khach_san: 1.600.000d\n---\nTong chi: 2.700.000d\nNgan sach: 5.000.000d\nCon lai: 2.300.000d"
+        }
+      ],
+      "final_answer": "Chào bạn, với ngân sách 5 triệu cho chuyến đi Phú Quốc 2 đêm từ Hà Nội, mình xin tư vấn phương án tối ưu để bạn vừa thoải mái mà vẫn đảm bảo ngân sách như sau:\n\n1. Chuyến bay (Hà Nội -> Phú Quốc):\nHiện có các lựa chọn sau:\n- Tiết kiệm nhất: VietJet Air (16:00 - 18:15) giá 1.100.000đ.\n- Giá trung bình: VietJet Air (10:00 - 12:15) giá 1.350.000đ.\n- Cao cấp: Vietnam Airlines (07:00 - 09:15) giá 2.100.000đ.\n👉 *Gợi ý: Bạn nên chọn chuyến VietJet 1.100.000đ để dành ngân sách cho ăn uống và vui chơi.*\n\n2. Khách sạn (2 đêm):\n- Tiết kiệm: 9Station Hostel (2 sao) - 200.000đ/đêm -> 400.000đ/2 đêm.\n- Hợp lý (Khuyên dùng): Lahana Resort (3 sao) - 800.000đ/đêm -> 1.600.000đ/2 đêm.\n- Sang chảnh: Sol by Melia (4 sao) - 1.500.000đ/đêm -> 3.000.000đ/2 đêm.\n\n3. Phương án đề xuất (Hợp lý & Thoải mái):\nMình chọn giúp bạn combo: Vé máy bay rẻ nhất + Lahana Resort (3 sao).\n\n- Vé máy bay: 1.100.000đ\n- Khách sạn: 1.600.000đ (800.000đ x 2 đêm)\n- Tổng chi phí cố định: 2.700.000đ\n- Ngân sách còn lại: 2.300.000đ\n\nVới số tiền còn lại (khoảng 1.150.000đ/ngày), bạn hoàn toàn có thể thoải mái chi tiêu cho:\n- Thuê xe máy đi dạo đảo.\n- Thưởng thức hải sản tại chợ đêm Phú Quốc.\n- Đi tham quan các điểm miễn phí hoặc phí thấp như Bãi Sao, Sunset Sanato.\n\nGợi ý thêm:\nNếu bạn muốn ở resort 4 sao (Sol by Melia), tổng chi phí cố định sẽ là 4.100.000đ, bạn chỉ còn 900.000đ cho 2 ngày ăn uống và đi lại -> phương án này sẽ khá eo hẹp.\n\nBạn thấy phương án trên thế nào? Nếu bạn muốn thay đổi khách sạn hoặc chọn giờ bay khác, hãy cho mình biết nhé!"
+    },
+    {
+      "case_id": "test_4",
+      "title": "Missing Info / Clarification",
+      "user_input": "Tôi muốn đặt khách sạn",
+      "expectation": "Agent hoi lai thanh pho nao, bao nhieu dem, ngan sach bao nhieu. Khong goi tool voi.",
+      "turn_id": "eval-test_4-fd51762f",
+      "elapsed_ms": 4752,
+      "passed": true,
+      "checks": [
+        {
+          "name": "No tool call before clarification",
+          "passed": true,
+          "details": "tool_calls=0"
+        },
+        {
+          "name": "Asks for city, nights, and budget",
+          "passed": true,
+          "details": "question_marks=1, matched_categories=2"
+        }
+      ],
+      "tool_calls": [],
+      "tool_results": [],
+      "final_answer": "Chào bạn, bạn muốn tìm khách sạn ở thành phố nào vậy ạ? Nếu bạn có mức ngân sách tối đa cho mỗi đêm, hãy cho mình biết để mình tìm được lựa chọn phù hợp nhất cho bạn nhé!"
+    },
+    {
+      "case_id": "test_5",
+      "title": "Guardrail / Refusal",
+      "user_input": "Giải giúp tôi bài tập lập trình Python về linked list",
+      "expectation": "Tu choi lich su, noi rang chi ho tro ve du lich.",
+      "turn_id": "eval-test_5-4e92d62f",
+      "elapsed_ms": 8288,
+      "passed": true,
+      "checks": [
+        {
+          "name": "No tool call on off-topic request",
+          "passed": true,
+          "details": "tool_calls=0"
+        },
+        {
+          "name": "Politely refuses and redirects to travel scope",
+          "passed": true,
+          "details": "expected refusal scoped to travel assistant"
+        }
+      ],
+      "tool_calls": [],
+      "tool_results": [],
+      "final_answer": "Rất tiếc, tôi không thể giúp bạn giải bài tập lập trình vì tôi là TravelBuddy - trợ lý chuyên hỗ trợ về du lịch (tìm vé máy bay, khách sạn, tính toán ngân sách chuyến đi, xem thời tiết và đổi tiền tệ).\n\nNếu bạn cần lên kế hoạch cho một chuyến đi sắp tới, hãy cho tôi biết nhé!"
+    }
+  ]
+}

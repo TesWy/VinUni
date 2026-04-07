@@ -1,0 +1,184 @@
+{
+  "timestamp": "2026-04-07T15:39:59.688600",
+  "provider": "gemini",
+  "model": "gemma-4-31b-it",
+  "summary": {
+    "passed": 3,
+    "total": 5
+  },
+  "results": [
+    {
+      "case_id": "test_1",
+      "title": "Direct Answer (Khong can tool)",
+      "user_input": "Xin chào! Tôi đang muốn đi du lịch nhưng chưa biết đi đâu.",
+      "expectation": "Agent chao hoi, hoi them ve so thich / ngan sach / thoi gian. Khong goi tool nao.",
+      "turn_id": "eval-test_1-4a30b051",
+      "elapsed_ms": 25286,
+      "passed": true,
+      "checks": [
+        {
+          "name": "No tool call",
+          "passed": true,
+          "details": "tool_calls=0"
+        },
+        {
+          "name": "Asks follow-up questions",
+          "passed": true,
+          "details": "question_marks=5, matched_categories=3"
+        }
+      ],
+      "tool_calls": [],
+      "tool_results": [],
+      "final_answer": "Chào bạn! Rất vui được đồng hành cùng bạn lên kế hoạch cho chuyến đi sắp tới. Cảm giác lúc bắt đầu tìm chỗ đi du lịch là thú vị nhất, nhưng cũng dễ bị \"rối\" nhất vì có quá nhiều lựa chọn.\n\nĐể mình có thể gợi ý cho bạn những điểm đến thật sự phù hợp và \"đúng gu\", bạn chia sẻ thêm với mình một chút thông tin nhé:\n\n1. Sở thích của bạn: Bạn đang thèm cảm giác nào? (Ví dụ: Muốn đi biển cho mát, lên vùng núi hít thở không khí trong lành, hay thích vào thành phố sôi động để ăn sập chợ và mua sắm?)\n2. Ngân sách dự kiến: Bạn muốn một chuyến đi tiết kiệm, vừa vặn hay là một kỳ nghỉ sang chảnh để tự thưởng cho bản thân?\n3. Thời gian và điểm khởi hành: Bạn định đi trong bao lâu (vài ngày cuối tuần hay một tuần lễ) và bạn sẽ khởi hành từ thành phố nào?\n4. Bạn đồng hành: Bạn đi một mình, đi với \"nửa kia\" hay đi cùng gia đình, nhóm bạn?\n\nNếu bạn vẫn thấy khó chọn, cứ bảo mình, mình sẽ đề xuất cho bạn 3 phương án theo 3 phong cách khác nhau để bạn dễ quyết định hơn nhé!"
+    },
+    {
+      "case_id": "test_2",
+      "title": "Single Tool Call",
+      "user_input": "Tìm giúp tôi chuyến bay từ Hà Nội đi Đà Nẵng",
+      "expectation": "Goi search_flights(\"Hà Nội\", \"Đà Nẵng\"), liet ke 4 chuyen bay.",
+      "turn_id": "eval-test_2-6c451f7c",
+      "elapsed_ms": 15128,
+      "passed": false,
+      "checks": [
+        {
+          "name": "Uses search_flights only",
+          "passed": false,
+          "details": "tool_sequence=['recommend_flights']"
+        },
+        {
+          "name": "search_flights returns 4 options",
+          "passed": false,
+          "details": "tool output for search_flights not captured"
+        },
+        {
+          "name": "Final answer mentions route or flight options",
+          "passed": true,
+          "details": "expected route/airline mention in final answer"
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "recommend_flights",
+          "args": {
+            "destination": "Đà Nẵng",
+            "origin": "Hà Nội"
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "recommend_flights",
+          "content": "De xuat ve may bay tu Ha Noi den Da Nang:\n- Goi y tiet kiem: VietJet Air | 08:30 - 09:50 | economy | 890.000d\n- Goi y di som: Vietnam Airlines | 06:00 - 07:20 | economy | 1.450.000d\n- Goi y linh hoat/cao cap: Vietnam Airlines | 14:00 - 15:20 | business | 2.800.000d\nDanh sach ve phu hop hien co:\n1. VietJet Air | 08:30 - 09:50 | economy | 890.000d\n2. Bamboo Airways | 11:00 - 12:20 | economy | 1.200.000d\n3. Vietnam Airlines | 06:00 - 07:20 | economy | 1.450.000d\n4. Vietnam Airlines | 14:00 - 15:20 | business | 2.800.000d"
+        }
+      ],
+      "final_answer": "Chào bạn, mình đã tìm được một vài lựa chọn chuyến bay từ Hà Nội đi Đà Nẵng cho bạn đây. Tùy vào nhu cầu mà bạn có thể chọn phương án phù hợp nhé:\n\n- Nếu bạn muốn tiết kiệm nhất: Bạn có thể chọn VietJet Air, khởi hành lúc 08:30, giá vé là 890.000đ (hạng phổ thông).\n- Nếu bạn muốn đi sớm để có nhiều thời gian chơi: Vietnam Airlines có chuyến 06:00, giá 1.450.000đ (hạng phổ thông).\n- Nếu bạn cần sự thoải mái và sang trọng: Vietnam Airlines có hạng thương gia khởi hành lúc 14:00 với giá 2.800.000đ.\n\nNgoài ra, còn có chuyến của Bamboo Airways lúc 11:00 với giá 1.200.000đ (hạng phổ thông) nếu bạn thích khung giờ trưa.\n\nBạn thấy phương án nào phù hợp với mình nhất? Nếu cần mình tìm thêm khách sạn hay xem thời tiết Đà Nẵng thì cứ bảo mình nhé!"
+    },
+    {
+      "case_id": "test_3",
+      "title": "Multi-Step Tool Chaining",
+      "user_input": "Tôi ở Hà Nội, muốn đi Phú Quốc 2 đêm, budget 5 triệu. Tư vấn giúp!",
+      "expectation": "Ky vong chain: search_flights(\"Hà Nội\", \"Phú Quốc\") -> search_hotels(\"Phú Quốc\", max_price phu hop) -> calculate_budget(5000000, ...), roi tong hop thanh goi y hoan chinh.",
+      "turn_id": "eval-test_3-51fe7905",
+      "elapsed_ms": 46095,
+      "passed": false,
+      "checks": [
+        {
+          "name": "Uses expected multi-step tool chain",
+          "passed": false,
+          "details": "expected=['search_flights', 'search_hotels', 'calculate_budget'], actual=['recommend_flights', 'search_hotels', 'get_weather']"
+        },
+        {
+          "name": "Mentions budget synthesis in final answer",
+          "passed": true,
+          "details": "expected budget summary in final answer"
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "recommend_flights",
+          "args": {
+            "origin": "Hà Nội",
+            "max_budget": 2500000,
+            "destination": "Phú Quốc"
+          }
+        },
+        {
+          "name": "search_hotels",
+          "args": {
+            "max_price_per_night": 1000000,
+            "city": "Phú Quốc"
+          }
+        },
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Phú Quốc"
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "name": "recommend_flights",
+          "content": "De xuat ve may bay tu Ha Noi den Phu Quoc:\nBo loc: budget<=2.500.000d\n- Goi y tiet kiem: VietJet Air | 16:00 - 18:15 | economy | 1.100.000d\n- Goi y di som: Vietnam Airlines | 07:00 - 09:15 | economy | 2.100.000d\nDanh sach ve phu hop hien co:\n1. VietJet Air | 16:00 - 18:15 | economy | 1.100.000d\n2. VietJet Air | 10:00 - 12:15 | economy | 1.350.000d\n3. Vietnam Airlines | 07:00 - 09:15 | economy | 2.100.000d"
+        },
+        {
+          "name": "search_hotels",
+          "content": "Danh sach khach san tai Phu Quoc (gia <= 1.000.000d/dem):\n1. 9Station Hostel | 2 sao | 200.000d/dem | Duong Dong | rating 4.5\n2. Lahana Resort | 3 sao | 800.000d/dem | Duong Dong | rating 4.0"
+        },
+        {
+          "name": "get_weather",
+          "content": "Khong the lay thoi tiet luc nay (loi forecast: status=429, body={\"error\":true,\"reason\":\"Too many concurrent requests\"})."
+        }
+      ],
+      "final_answer": "Chào bạn! Với ngân sách 5 triệu cho chuyến đi Phú Quốc 2 đêm từ Hà Nội, mình thấy hoàn toàn khả thi nếu chúng ta cân đối hợp lý.\n\nDưới đây là phương án mình đề xuất để bạn dễ lựa chọn nhé:\n\n1. Chuyến bay (Hà Nội -> Phú Quốc):\nCó 2 lựa chọn tùy vào ưu tiên của bạn:\n- Tiết kiệm: VietJet Air (16:00 - 18:15) với giá khoảng 1.100.000d.\n- Đi sớm/Thoải mái: Vietnam Airlines (07:00 - 09:15) với giá khoảng 2.100.000d. Nếu chọn vé này, bạn sẽ có nhiều thời gian chơi hơn trong ngày đầu tiên.\n\n2. Khách sạn (2 đêm tại Dương Đông):\n- Lựa chọn bình dân: 9Station Hostel (2 sao) - Giá khoảng 200.000d/đêm. Tổng 2 đêm: 400.000d. (Rating rất cao: 4.5)\n- Lựa chọn thoải mái: Lahana Resort (3 sao) - Giá khoảng 800.000d/đêm. Tổng 2 đêm: 1.600.000d. (Rating: 4.0)\n\n3. Tổng chi phí ước tính (cho 1 người):\n\nMình chia làm 2 gói để bạn dễ hình dung:\n\n- Gói \"Siêu tiết kiệm\" (Chọn VietJet + Hostel):\n- Vé máy bay: 1.100.000d\n- Khách sạn: 400.000d\n- Tổng cộng: 1.500.000d\n- Còn lại: 3.500.000d (Bạn thoải mái chi cho ăn uống, thuê xe máy và đi tour đảo).\n\n- Gói \"Cân bằng/Thoải mái\" (Chọn VietJet + Resort):\n- Vé máy bay: 1.100.000d\n- Khách sạn: 1.600.000d\n- Tổng cộng: 2.700.000d\n- Còn lại: 2.300.000d (Vẫn đủ cho các chi phí cơ bản và ăn uống ngon miệng).\n\n*Lưu ý: Giá vé máy bay và khách sạn có thể thay đổi tùy thời điểm bạn đặt.*\n\nGợi ý thêm:\n- Thời tiết: Hiện tại mình chưa lấy được thông tin thời tiết chính xác cho Phú Quốc, bạn nhớ check lại app thời tiết trước khi đóng gói hành lý nhé.\n- Di chuyển: Tại Phú Quốc, bạn nên thuê xe máy (khoảng 120k - 150k/ngày) để linh hoạt di chuyển giữa các điểm tham quan.\n- Ăn uống: Đừng quên ghé chợ đêm Phú Quốc để thưởng thức hải sản tươi sống.\n\nBạn thấy phương án nào phù hợp với mình hơn? Nếu muốn mình tính chi tiết hơn cho cả vé khứ hồi hoặc thay đổi hạng phòng, cứ bảo mình nhé!"
+    },
+    {
+      "case_id": "test_4",
+      "title": "Missing Info / Clarification",
+      "user_input": "Tôi muốn đặt khách sạn",
+      "expectation": "Agent hoi lai thanh pho nao, bao nhieu dem, ngan sach bao nhieu. Khong goi tool voi.",
+      "turn_id": "eval-test_4-c316bd20",
+      "elapsed_ms": 4844,
+      "passed": true,
+      "checks": [
+        {
+          "name": "No tool call before clarification",
+          "passed": true,
+          "details": "tool_calls=0"
+        },
+        {
+          "name": "Asks for city, nights, and budget",
+          "passed": true,
+          "details": "question_marks=1, matched_categories=2"
+        }
+      ],
+      "tool_calls": [],
+      "tool_results": [],
+      "final_answer": "Để mình giúp bạn tìm khách sạn ưng ý nhé! Bạn cho mình biết bạn định đi thành phố nào và ngân sách tối đa cho một đêm là khoảng bao nhiêu không?"
+    },
+    {
+      "case_id": "test_5",
+      "title": "Guardrail / Refusal",
+      "user_input": "Giải giúp tôi bài tập lập trình Python về linked list",
+      "expectation": "Tu choi lich su, noi rang chi ho tro ve du lich.",
+      "turn_id": "eval-test_5-4d7229a8",
+      "elapsed_ms": 9429,
+      "passed": true,
+      "checks": [
+        {
+          "name": "No tool call on off-topic request",
+          "passed": true,
+          "details": "tool_calls=0"
+        },
+        {
+          "name": "Politely refuses and redirects to travel scope",
+          "passed": true,
+          "details": "expected refusal scoped to travel assistant"
+        }
+      ],
+      "tool_calls": [],
+      "tool_results": [],
+      "final_answer": "Rất tiếc, mình là TravelBuddy - trợ lý chuyên hỗ trợ bạn lên kế hoạch du lịch, tìm vé máy bay, khách sạn và quản lý ngân sách chuyến đi. Việc giải bài tập lập trình Python nằm ngoài khả năng của mình rồi.\n\nNếu bạn cần gợi ý một địa điểm du lịch để \"đổi gió\" sau những giờ lập trình căng thẳng, hoặc muốn tìm một chuyến đi thật chill để nạp lại năng lượng, hãy cứ bảo mình nhé! Mình luôn sẵn sàng hỗ trợ bạn. 😊"
+    }
+  ]
+}
