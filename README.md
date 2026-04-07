@@ -87,11 +87,11 @@ Day 5 + Day 6 chấm chung = **100 điểm**.
 
 | Hạng mục | Điểm | Loại | Khi nào |
 |----------|------|------|---------|
-| SPEC milestone | 25 | Nhóm + cá nhân | Draft midnight D5, final 13:00 D6 |
-| POC milestone | 15 | Nhóm + cá nhân | 16:00 Day 6 |
-| Demo Day | 25 | Nhóm | Demo round + top teams, chiều D6 |
+| SPEC milestone | 25 | Nhóm + cá nhân | Draft midnight D5, final 23:59 D6 |
+| Prototype milestone | 15 | Nhóm + cá nhân | 23:59 Day 6 |
+| Demo Day | 25 | Nhóm | Present 16:00, nộp file 23:59 D6 |
 | **Bài tập UX** | **10** | **Cá nhân + bonus** | **UX workshop sáng D5** |
-| Individual form (role + reflection) | 25 | Cá nhân | Sau D6 |
+| Individual reflection | 25 | Cá nhân | 23:59 Day 6 |
 | **Tổng** | **100** | | |
 
 ### Bài tập UX (10 điểm + bonus)
@@ -125,6 +125,24 @@ Nhóm 3–5 người, chia zone (~5 team/zone).
 | [`01-ux-exercise.md`](01-ux-exercise.md) | Đề bài UX workshop — hướng dẫn từng phần, tiêu chí nộp bài |
 | [`02-canvas-template.md`](02-canvas-template.md) | Template AI Product Canvas — dùng cho Canvas practice |
 | [`03-day5-cheatsheet.md`](03-day5-cheatsheet.md) | Tóm tắt 1 trang các framework từ lecture — tra cứu nhanh |
+
+---
+
+## Nộp bài Day 5
+
+**Deadline:** Midnight Day 5 | **Nộp lên:** LMS | **Mỗi người nộp 1 zip riêng**
+
+```
+MaHocVien-HoTen-Day05.zip
+│
+├── canhan/
+│   └── ux-exercise/               ← Ảnh chụp/scan sketch + ghi chú phân tích 4 paths
+│       ├── sketch.jpg/pdf         ← Sketch giấy (as-is + to-be)
+│       └── analysis.md            ← Ghi chú phân tích 4 paths + gap marketing vs thực tế
+│
+└── NhomXX-Room/                   ← VD: Nhom01-403
+    └── spec-draft.md              ← SPEC draft (file nhóm, mỗi người nộp giống nhau)
+```
 
 ---
 
