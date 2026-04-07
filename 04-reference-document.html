@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Ngày 5 — Tài liệu tham khảo</title>
+<style>
+  @page { size: A4; margin: 48px 56px; }
+  :root {
+    --vin-blue: #2e548a;
+    --vin-red: #c83538;
+    --gray-1: #1d1d1f;
+    --gray-2: #6e6e73;
+    --gray-3: #f5f5f7;
+    --rule: rgba(0,0,0,0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'SF Pro Text', -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    color: var(--gray-1);
+    line-height: 1.65;
+    font-size: 14px;
+    background: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 56px 48px;
+  }
+
+  /* Header */
+  .doc-header {
+    border-bottom: 3px solid var(--vin-blue);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  .doc-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--vin-blue);
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  .doc-header .subtitle {
+    font-size: 15px;
+    color: var(--gray-2);
+    line-height: 1.5;
+  }
+  .doc-header .subtitle strong { color: var(--gray-1); font-weight: 600; }
+
+  /* Sections */
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--vin-blue);
+    margin-top: 36px;
+    margin-bottom: 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-1);
+    margin-top: 24px;
+    margin-bottom: 10px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 12px 0 20px;
+  }
+  thead th {
+    background: var(--vin-blue);
+    color: white;
+    font-weight: 600;
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  thead th:first-child { border-radius: 6px 0 0 0; }
+  thead th:last-child { border-radius: 0 6px 0 0; }
+  tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tbody tr:nth-child(even) { background: var(--gray-3); }
+  td:first-child { font-weight: 600; min-width: 160px; }
+
+  /* Reference cards */
+  .ref-card {
+    background: var(--gray-3);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    page-break-inside: avoid;
+  }
+  .ref-card .ref-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-1);
+    margin-bottom: 6px;
+  }
+  .ref-card .ref-body {
+    font-size: 13px;
+    color: var(--gray-2);
+    line-height: 1.55;
+  }
+  .ref-card .ref-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--vin-blue);
+    text-decoration: none;
+    word-break: break-all;
+  }
+
+  /* Case study cards */
+  .case-card {
+    border-left: 3px solid var(--vin-red);
+    padding: 12px 16px;
+    margin: 12px 0;
+    background: rgba(200,53,56,0.02);
+    border-radius: 0 8px 8px 0;
+    page-break-inside: avoid;
+  }
+  .case-card .case-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--vin-red);
+    margin-bottom: 4px;
+  }
+  .case-card .case-body {
+    font-size: 13px;
+    color: var(--gray-1);
+    line-height: 1.55;
+  }
+  .case-card .case-source {
+    font-size: 12px;
+    color: var(--gray-2);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* Principles table */
+  .principles-table td:first-child {
+    min-width: 32px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--vin-blue);
+  }
+  .principles-table td:nth-child(2) {
+    font-weight: 600;
+    color: var(--gray-1);
+    min-width: 220px;
+  }
+  .principles-table td:nth-child(3) {
+    color: var(--gray-2);
+    font-size: 12.5px;
+  }
+
+  /* Expert cards */
+  .expert-card {
+    border-left: 3px solid var(--vin-blue);
+    padding: 12px 16px;
+    margin: 12px 0;
+    background: rgba(46,84,138,0.03);
+    border-radius: 0 8px 8px 0;
+    page-break-inside: avoid;
+  }
+  .expert-card .expert-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--vin-blue);
+    margin-bottom: 4px;
+  }
+  .expert-card .expert-body {
+    font-size: 13px;
+    color: var(--gray-1);
+    line-height: 1.55;
+  }
+  .expert-card .expert-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--vin-blue);
+    text-decoration: none;
+  }
+
+  /* Cross-ref */
+  .cross-ref {
+    font-size: 12.5px;
+    color: var(--gray-2);
+    font-style: italic;
+    margin: 8px 0 16px;
+  }
+
+  /* Section 6 research cards */
+  .research-section h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gray-2);
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  /* Footer */
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--gray-2);
+    text-align: center;
+  }
+
+  /* How to use */
+  .how-to-use {
+    background: rgba(46,84,138,0.05);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  .how-to-use ul {
+    list-style: none;
+    padding: 0;
+  }
+  .how-to-use li {
+    padding: 4px 0;
+    font-size: 13px;
+    color: var(--gray-1);
+  }
+  .how-to-use li strong { color: var(--vin-blue); }
+
+  /* Print */
+  @media print {
+    body { padding: 0; max-width: none; }
+    .ref-card, .case-card, .expert-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <h1>Ngày 5 — Tài liệu tham khảo</h1>
+  <div class="subtitle">
+    <strong>VinUni A20 — AI Thực Chiến</strong><br>
+    Thiết kế sản phẩm AI cho xác suất<br>
+    Tra cứu trong và sau buổi học. Mỗi mục có link gốc, tóm tắt ngắn, và giải thích liên quan đến nội dung bài giảng.
+  </div>
+</div>
+
+<!-- 1. FRAMEWORKS -->
+<h2>1. Frameworks & models</h2>
+
+<h3>1.1 Frameworks dạy trong buổi học</h3>
+
+<table>
+  <thead>
+    <tr><th>Framework</th><th>Mô tả</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>AI = Probabilistic</td><td>AI output là xác suất kèm sai số, không phải kết quả chính xác. Dùng khi đặt kỳ vọng cho product: "thiết kế cho uncertainty."</td></tr>
+    <tr><td>Automation vs Augmentation</td><td>2 cách deploy AI: làm thay user (automation) vs gợi ý để user quyết (augmentation). Chọn sai → cascade xuống mọi quyết định sau.</td></tr>
+    <tr><td>Agency Progression (V1→V3)</td><td>Bắt đầu augmentation, tăng dần automation: V1 routing → V2 copilot → V3 tự động. Mỗi version thu data để quyết định lên tiếp.</td></tr>
+    <tr><td>3 trụ (Requirement · UX · Eval)</td><td>AI product thay đổi cả 3: requirement = threshold + failure modes, UX = thiết kế cho lúc sai, eval = đo phân bố chất lượng.</td></tr>
+    <tr><td>Failure Mode Library</td><td>Thay vì list features, list cách product có thể fail: Trigger / Hậu quả / Mitigation.</td></tr>
+    <tr><td>Precision vs Recall</td><td>PM chọn precision (ít sai nhầm) hay recall (ít bỏ sót) — phụ thuộc cost of error của product.</td></tr>
+    <tr><td>4 paths UX cho AI</td><td>4 câu hỏi UX cho mỗi AI feature: khi đúng → value moment, khi low-confidence → escalate, khi sai → correction path, khi mất tin → explain + opt-out.</td></tr>
+    <tr><td>Graceful Failure + Trust</td><td>Thiết kế UX cho lúc AI sai: show confidence, explain why, cho user sửa, cho opt-out.</td></tr>
+    <tr><td>AI Product Canvas</td><td>Canvas 3 cột (Value / Trust / Feasibility) + Learning Signal row. Gộp requirement, UX, eval vào 1 artifact.</td></tr>
+    <tr><td>Feedback Loop</td><td>AI product = organism, không phải artifact. Loop 4 bước: Ingest → Digest → Output → Repeat. KPI = tốc độ loop.</td></tr>
+    <tr><td>Data Flywheel</td><td>Có user → thu data → AI tốt hơn → hút thêm user. AI capabilities commodity hoá → data riêng = lợi thế thật.</td></tr>
+    <tr><td>Qualitative > Quantitative</td><td>AI phương sai cao — "87% accuracy" che lấp chất lượng thật. Qualitative cho biết WHERE + WHY.</td></tr>
+    <tr><td>Cost-Capability-Speed</td><td>Mọi AI product chọn 1 ưu tiên, trade-off 2 còn lại. Copilot = speed, Harvey = capability, Grammarly = cost.</td></tr>
+    <tr><td>ROI 3 kịch bản</td><td>Best / Expected / Worst case + kill criteria. Kiểm tra "có đáng build không" trước khi code.</td></tr>
+  </tbody>
+</table>
+
+<h3>1.2 Frameworks bên ngoài</h3>
+
+<div class="ref-card">
+  <div class="ref-title">Reforge — AI Product Management course</div>
+  <div class="ref-body">Khoá học chuyên sâu về AI product strategy, nguồn gốc nhiều framework trong bài giảng: "Four Critical AI Product Strategy Mistakes" (1.1), "Learning vs Computational Problems" (1.2), "AI Feature Map" (1.3), "Cost-Capability-Speed" (2.2). Nếu muốn hiểu sâu logic đằng sau bài giảng, đây là nguồn chính.</div>
+  <a class="ref-link" href="https://www.reforge.com/">reforge.com (có paywall)</a>
+</div>
+
+<div class="ref-card">
+  <div class="ref-title">Zwee Dao — AI Product Design series</div>
+  <div class="ref-body">Bộ slides về automation vs augmentation, precision/recall, ML errors & graceful failure, explainability & trust. Nguồn cho nhiều framework UX — đặc biệt phần 4 paths và trust patterns.</div>
+  <span class="ref-link">Nguồn nội bộ (slides series #2, #3, #5, #6)</span>
+</div>
+
+<p class="cross-ref">Xem thêm: Tài liệu tham khảo Ngày 2 — Google PAIR Guidebook, Microsoft HAX Toolkit, NIST AI RMF.</p>
+
+<!-- 2. CASE STUDIES -->
+<h2>2. Case studies</h2>
+
+<div class="case-card">
+  <div class="case-title">Google AI Overview vs Perplexity — cùng tech, khác product strategy</div>
+  <div class="case-body">Google "rắc AI fairy dust" lên search — trả lời sai, ăn keo dán pizza. Perplexity dùng cùng LLM nhưng build product khác — thành công. Bài học: "sprinkling AI" lên product có sẵn ≠ product strategy.</div>
+  <div class="case-source">Nguồn: Reforge 1.1 "Four Critical AI Product Strategy Mistakes"</div>
+</div>
+
+<div class="case-card">
+  <div class="case-title">Chegg — incumbent bị disrupt không phải vì tech yếu</div>
+  <div class="case-body">EdTech mất 90% giá trị cổ phiếu sau ChatGPT. Chegg có data, có relationship với trường — nhưng không biến thành AI product advantage. Quizlet cùng bị disrupt nhưng pivot tốt hơn vì xây product mới xung quanh AI.</div>
+  <div class="case-source">Nguồn: Reforge 2.7</div>
+</div>
+
+<div class="case-card">
+  <div class="case-title">GitHub Copilot — 30% accuracy vẫn 20 triệu user</div>
+  <div class="case-body">Accuracy chỉ 30%, nhưng ghost text UX khiến cost of reject = 0 (nhấn Tab hoặc tiếp tục gõ). Minh hoạ: augmentation không cần accuracy cao nếu UX đúng. Speed-first ROI positioning.</div>
+  <div class="case-source">Xem thêm: Tài liệu tham khảo Ngày 2</div>
+</div>
+
+<div class="case-card">
+  <div class="case-title">Harvey — legal AI, sai = mất vụ kiện</div>
+  <div class="case-body">Invest accuracy trước, ship chậm. $500+/user/month nhưng client chấp nhận vì precision cao + value cao. Capability-first ROI positioning — ngược hoàn toàn với Copilot.</div>
+  <div class="case-source">Nguồn: Reforge 2.2</div>
+</div>
+
+<div class="case-card">
+  <div class="case-title">Microsoft Tay — không có failure design, thành racist bot</div>
+  <div class="case-body">Chatbot không có graceful failure hay content moderation → bị troll thành racist. Ví dụ kinh điển cho tầm quan trọng của path 3 (khi sai) và path 4 (khi mất tin) trong 4 paths UX.</div>
+  <div class="case-source">Nguồn: Bài giảng Ngày 5</div>
+</div>
+
+<div class="case-card">
+  <div class="case-title">Descript — gắn AI quality vào pricing tier</div>
+  <div class="case-body">Tier Basic accuracy thấp hơn, Pro tốt hơn. Minh hoạ: AI requirement khác traditional software — quality là spectrum, không phải binary.</div>
+  <div class="case-source">Nguồn: Reforge 1.3</div>
+</div>
+
+<div class="case-card">
+  <div class="case-title">Microsoft Dragon — data flywheel cho y tế</div>
+  <div class="case-body">AI ghi chép cho bác sĩ. Từ synthetic data (acceptance 30–60%) → 600K ca thực tế + chuyên gia đánh giá (75%) → continuous loop (83%). Dữ liệu thật + chuyên gia hiệu quả gấp nhiều lần synthetic.</div>
+  <div class="case-source">Nguồn: Lenny's Podcast — Asha Sharma interview</div>
+</div>
+
+<div class="case-card">
+  <div class="case-title">Customer Support Agent V1→V3 — agency progression thực tế</div>
+  <div class="case-body">V1 chỉ routing ticket → V2 gợi ý draft trả lời → V3 tự xử lý. Team nhảy thẳng V3 phải shutdown vì lỗi quá nhiều. Bắt đầu augmentation, tăng dần automation khi có data.</div>
+  <div class="case-source">Nguồn: Lenny's Podcast — Reganti & Badam interview</div>
+</div>
+
+<p class="cross-ref">Xem thêm: Tài liệu tham khảo Ngày 2 — Google Photos, Stripe AI, Gmail Smart Compose, Grammarly.</p>
+
+<!-- 3. SÁCH & BÀI VIẾT -->
+<h2>3. Sách & bài viết chuyên sâu</h2>
+
+<h3>AI product strategy</h3>
+
+<div class="ref-card">
+  <div class="ref-title">Hamel Husain — "Your AI Product Needs Evals" (2024)</div>
+  <div class="ref-body">Hướng dẫn thực tiễn cách viết eval cho AI products: bắt đầu từ 50–100 outputs → phân loại lỗi → viết eval từ error patterns. Được dạy trực tiếp trong bài giảng. Đọc nếu muốn biết cách bắt đầu viết eval.</div>
+  <a class="ref-link" href="https://hamel.dev/blog/posts/evals/">hamel.dev/blog/posts/evals</a>
+</div>
+
+<h3>Expert interviews (Lenny's Podcast)</h3>
+
+<div class="expert-card">
+  <div class="expert-name">Aparna Chennapragada — CPO Microsoft, ex-Google Lens</div>
+  <div class="expert-body">2 thời đại AI product: 2012–2020 interface quá tham vọng + AI chưa giỏi (Siri, Alexa), 2023+ AI cực giỏi + interface vẫn chỉ chat box. "Chatbot = modem quay số AOL." Học được: tại sao UX phải match với intelligence level.</div>
+  <a class="expert-link" href="https://www.lennysnewsletter.com/p/microsoft-cpo-on-ai">lennysnewsletter.com/p/microsoft-cpo-on-ai</a>
+</div>
+
+<div class="expert-card">
+  <div class="expert-name">Ash Reganti & Vikram Badam — 50+ AI deployments, OpenAI/Google/Amazon</div>
+  <div class="expert-body">AI product có 3 lớp bất định: input, output, process — cả 3 đều uncertainty. Case customer support V1→V3 trong bài giảng lấy từ đây. Học được: tại sao AI product phải thiết kế khác từ gốc.</div>
+  <a class="expert-link" href="https://www.lennysnewsletter.com/p/what-openai-and-google-engineers-learned">lennysnewsletter.com/p/what-openai-and-google-engineers-learned</a>
+</div>
+
+<div class="expert-card">
+  <div class="expert-name">Kevin Weil — CPO OpenAI</div>
+  <div class="expert-body">60% accuracy = copilot, 95% = semi-auto, 99.5% = autopilot. "Model bạn dùng hôm nay là model tệ nhất bạn sẽ dùng trong đời." Eval sẽ trở thành core skill cho PM.</div>
+  <a class="expert-link" href="https://www.lennysnewsletter.com/p/kevin-weil-open-ai">lennysnewsletter.com/p/kevin-weil-open-ai</a>
+</div>
+
+<div class="expert-card">
+  <div class="expert-name">Asha Sharma — CVP Microsoft AI Platform</div>
+  <div class="expert-body">Quản lý 80.000 công ty build AI. AI product = organism, không phải artifact. KPI mới = "metabolism" — tốc độ loop. Case Dragon (AI ghi chép bác sĩ). Feedback loop là product, là IP.</div>
+  <a class="expert-link" href="https://www.lennysnewsletter.com/p/how-80000-companies-build-with-ai-asha-sharma">lennysnewsletter.com/p/how-80000-companies-build-with-ai-asha-sharma</a>
+</div>
+
+<div class="expert-card">
+  <div class="expert-name">Mike Krieger — CPO Anthropic, co-founder Instagram</div>
+  <div class="expert-body">Model Intelligence × Context × UI = Utility. Phép nhân — 1 cái = 0 thì tất cả = 0. "Overhang": AI làm được nhiều hơn user thực tế dùng. UX phải thu hẹp gap giữa capability và adoption.</div>
+  <a class="expert-link" href="https://www.lennysnewsletter.com/p/anthropics-cpo-heres-what-comes-next">lennysnewsletter.com/p/anthropics-cpo-heres-what-comes-next</a>
+</div>
+
+<p class="cross-ref">Xem thêm: Tài liệu tham khảo Ngày 2 — Chip Huyen, Sculley et al., a16z LLM architectures, Emmanuel Ameisen.</p>
+
+<!-- 4. UX & DESIGN -->
+<h2>4. UX & design cho AI</h2>
+
+<div class="ref-card">
+  <div class="ref-title">Google PAIR — People + AI Guidebook</div>
+  <div class="ref-body">Bộ hướng dẫn thiết kế AI product từ Google, tổ chức theo câu hỏi thực tế (đặt kỳ vọng, xử lý lỗi, xây mental model). Đọc nếu muốn áp dụng 4 paths UX vào product thật — guidebook có ví dụ cụ thể cho từng pattern.</div>
+  <a class="ref-link" href="https://pair.withgoogle.com/guidebook/">pair.withgoogle.com/guidebook</a>
+</div>
+
+<div class="ref-card">
+  <div class="ref-title">Alexa Effect — vòng xoáy đi xuống</div>
+  <div class="ref-body">Chất lượng kém → user ngừng dùng → mất data → AI càng kém. Amazon Alexa là ví dụ kinh điển. Ngăn bằng: launch scope nhỏ + augmentation thay vì automation. Liên quan trực tiếp đến phần feedback loop trong bài giảng.</div>
+</div>
+
+<p class="cross-ref">Xem thêm: Tài liệu tham khảo Ngày 2 — Microsoft HAX Toolkit, NN/g Customer Journey Mapping.</p>
+
+<!-- 5. NGUYÊN TẮC -->
+<h2>5. Nguyên tắc cốt lõi</h2>
+
+<table class="principles-table">
+  <thead>
+    <tr><th>#</th><th>Nguyên tắc</th><th>Giải thích ngắn</th><th style="min-width:100px">Nguồn</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>"Vấn đề không phải AI yếu. Vấn đề là ta đang đối xử AI như phần mềm thường."</td><td>Thesis bài giảng: requirement, UX, eval đều phải khác</td><td>Bài giảng</td></tr>
+    <tr><td>2</td><td>"Nếu sản phẩm dùng AI, bạn đang thiết kế cho uncertainty."</td><td>AI = xác suất → product phải handle sai số</td><td>Bài giảng</td></tr>
+    <tr><td>3</td><td>"Cùng AI, khác cách deploy → kết quả hoàn toàn ngược."</td><td>Copilot (aug, 30%) vs Spam filter (auto, 99%+)</td><td>Bài giảng</td></tr>
+    <tr><td>4</td><td>"0→80% = 1 tuần, 80→95% = 4x effort."</td><td>Demo khác product. 20% cuối quyết định có ai dùng</td><td>Reforge 1.1</td></tr>
+    <tr><td>5</td><td>"Thay vì list features, list cách product có thể fail."</td><td>Failure mode library > feature list cho AI product</td><td>Reforge 2.5</td></tr>
+    <tr><td>6</td><td>"Sai mà user KHÔNG BIẾT → precision. Sai mà user THẤY NGAY → recall ok."</td><td>Cách chọn metric phụ thuộc user visibility</td><td>Bài giảng</td></tr>
+    <tr><td>7</td><td>"AI capabilities commodity hoá → data riêng = lợi thế thật."</td><td>Model ai cũng dùng được, data riêng mới khác biệt</td><td>Reforge 1.6</td></tr>
+    <tr><td>8</td><td>"Model hôm nay là model tệ nhất bạn sẽ dùng trong đời."</td><td>Đừng over-engineer cho limitations hiện tại</td><td>Kevin Weil</td></tr>
+    <tr><td>9</td><td>"The loop IS the product, IS the IP."</td><td>Feedback loop không phải feature phụ, là core product</td><td>Asha Sharma</td></tr>
+    <tr><td>10</td><td>"Intelligence × Context × UI = Utility. Phép nhân."</td><td>1 cái = 0 thì tất cả = 0. UX quan trọng ngang model</td><td>Mike Krieger</td></tr>
+    <tr><td>11</td><td>"Qualitative > Quantitative. 87% accuracy nhưng 13% sai ở đâu?"</td><td>Metric đơn giản che lấp vấn đề thật ở early stage</td><td>Bài giảng</td></tr>
+  </tbody>
+</table>
+
+<!-- 6. ĐỌC THÊM -->
+<h2>6. Đọc thêm — nghiên cứu bổ sung</h2>
+
+<p style="font-size:13px;color:var(--gray-2);margin-bottom:16px">Các nguồn dưới đây không có trong bài giảng nhưng bổ sung trực tiếp cho từng chủ đề. Tất cả miễn phí hoặc có bản free.</p>
+
+<div class="research-section">
+<h3>AI product management</h3>
+
+<div class="ref-card">
+  <div class="ref-title">Lenny Rachitsky — "Counterintuitive Advice for Building AI Products" (2024)</div>
+  <div class="ref-body">Phỏng vấn 20+ người build AI product thành công, chia sẻ bài học không hiển nhiên. Bổ sung cho phần "demo ≠ product" trong bài giảng.</div>
+  <a class="ref-link" href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building">lennysnewsletter.com/p/counterintuitive-advice-for-building</a>
+</div>
+
+<div class="ref-card">
+  <div class="ref-title">a16z — "16 Changes to the Way Enterprises Are Building and Buying Generative AI" (2024)</div>
+  <div class="ref-body">Khảo sát 70+ doanh nghiệp Fortune 500 về cách họ quyết định AI: model selection, use-case prioritization, resourcing.</div>
+  <a class="ref-link" href="https://a16z.com/generative-ai-enterprise-2024/">a16z.com/generative-ai-enterprise-2024</a>
+</div>
+
+<h3>Precision, recall & eval</h3>
+
+<div class="ref-card">
+  <div class="ref-title">Evidently AI — "Accuracy vs. Precision vs. Recall in ML"</div>
+  <div class="ref-body">Giải thích rõ ràng precision, recall với ví dụ trực quan. Đọc nếu phần precision/recall trong bài giảng chưa rõ — bài này giải thích bằng hình, không cần nền statistics.</div>
+  <a class="ref-link" href="https://www.evidentlyai.com/classification-metrics/accuracy-precision-recall">evidentlyai.com/classification-metrics/accuracy-precision-recall</a>
+</div>
+
+<div class="ref-card">
+  <div class="ref-title">Google ML Crash Course — "Classification: Accuracy, Precision, Recall"</div>
+  <div class="ref-body">Module miễn phí từ Google, có interactive examples và visualizations cho confusion matrix.</div>
+  <a class="ref-link" href="https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall">developers.google.com/machine-learning/crash-course</a>
+</div>
+
+<h3>UX cho AI products</h3>
+
+<div class="ref-card">
+  <div class="ref-title">The Shape of AI — AI UX Pattern Library</div>
+  <div class="ref-body">Thư viện 24+ patterns UX cho AI (refine output, prompt presets, explainability layers, error recovery) với 50+ ví dụ từ sản phẩm thật.</div>
+  <a class="ref-link" href="https://www.shapeof.ai/">shapeof.ai</a>
+</div>
+
+<div class="ref-card">
+  <div class="ref-title">Smashing Magazine — "Designing for Agentic AI: UX Patterns" (2026)</div>
+  <div class="ref-body">Patterns UX cho AI agent: control flows, consent checkpoints, accountability. Đọc nếu project là agent/automation.</div>
+  <a class="ref-link" href="https://www.smashingmagazine.com/2026/02/designing-agentic-ai-practical-ux-patterns/">smashingmagazine.com — designing agentic AI</a>
+</div>
+
+<h3>AI Product Canvas & PRD</h3>
+
+<div class="ref-card">
+  <div class="ref-title">Miqdad Jaffer (OpenAI) — "A Proven AI PRD Template" (2025)</div>
+  <div class="ref-body">PRD template thực tế từ OpenAI product lead, có case study Shopify "Auto Write." Dùng khi viết Mini AI spec.</div>
+  <a class="ref-link" href="https://www.productcompass.pm/p/ai-prd-template">productcompass.pm/p/ai-prd-template</a>
+</div>
+
+<h3>Feedback loops & data flywheel</h3>
+
+<div class="ref-card">
+  <div class="ref-title">Shreya Shankar (UC Berkeley) — "Data Flywheels for LLM Applications"</div>
+  <div class="ref-body">Cách thiết kế data flywheel cho ứng dụng LLM: biến user interactions thành systematic model improvement.</div>
+  <a class="ref-link" href="https://www.sh-reya.com/blog/ai-engineering-flywheel/">sh-reya.com/blog/ai-engineering-flywheel</a>
+</div>
+
+<div class="ref-card">
+  <div class="ref-title">MIT Sloan — "Why It's Time for Data-Centric Artificial Intelligence"</div>
+  <div class="ref-body">Andrew Ng's data-centric AI framework: cải thiện data quality quan trọng hơn scale model, đặc biệt cho team nhỏ.</div>
+  <a class="ref-link" href="https://mitsloan.mit.edu/ideas-made-to-matter/why-its-time-data-centric-artificial-intelligence">mitsloan.mit.edu — data-centric AI</a>
+</div>
+
+<h3>ROI cho AI products</h3>
+
+<div class="ref-card">
+  <div class="ref-title">Larridin — "The AI ROI Measurement Framework" (2025)</div>
+  <div class="ref-body">Framework đo ROI cho AI: 5-link chain (Spend → Adoption → Proficiency → Productivity → Business Outcome).</div>
+  <a class="ref-link" href="https://larridin.com/blog/ai-roi-measurement">larridin.com/blog/ai-roi-measurement</a>
+</div>
+
+<h3>Automation vs augmentation</h3>
+
+<div class="ref-card">
+  <div class="ref-title">Stanford HAI — "Humans in the Loop: The Design of Interactive AI Systems"</div>
+  <div class="ref-body">Reframe automation thành HCI design problem. Bổ sung cho framework auto vs aug trong bài giảng.</div>
+  <a class="ref-link" href="https://hai.stanford.edu/news/humans-loop-design-interactive-ai-systems">hai.stanford.edu — humans in the loop</a>
+</div>
+</div>
+
+<!-- HOW TO USE -->
+<h2>Cách sử dụng tài liệu này</h2>
+
+<div class="how-to-use">
+  <ul>
+    <li><strong>Trong bài giảng:</strong> tra cứu Section 1 (frameworks) khi giảng viên nhắc đến framework nào</li>
+    <li><strong>Sau bài giảng:</strong> đọc Section 2 (case studies) và Section 3 (expert interviews) để hiểu sâu hơn</li>
+    <li><strong>Trước hackathon:</strong> đọc Section 6 (đọc thêm) theo chủ đề quan tâm</li>
+    <li><strong>Trong hackathon:</strong> dùng hackathon toolkit (templates, tools, cheatsheet) — không phải file này</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  Tài liệu tham khảo — Ngày 5: Thiết kế sản phẩm AI cho xác suất<br>
+  VinUni A20 — AI Thực Chiến
+</div>
+
+</body>
+</html>
