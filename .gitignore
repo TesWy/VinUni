@@ -1,0 +1,11 @@
+﻿venv/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.pytest_cache/
+.mypy_cache/
+lab4_agent/logs/chat_sessions.json
+lab4_agent/logs/traces.jsonl
+lab4_agent/logs/travelbuddy.log
+
