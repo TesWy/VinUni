@@ -1,0 +1,23 @@
+[
+    {
+        "id": "A001",
+        "email": "v***@gmail.com",
+        "product": "Laptop OLED",
+        "price": 2500,
+        "category": "elec"
+    },
+    {
+        "id": "A002",
+        "email": "b***@vinuni.edu.vn",
+        "product": "Ergonomic Chair",
+        "price": 300,
+        "category": "furniture"
+    },
+    {
+        "id": "A005",
+        "email": "s***@xyz.com",
+        "product": "Smartwatch",
+        "price": 400,
+        "category": ""
+    }
+]
